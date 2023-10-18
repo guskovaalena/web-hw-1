@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <img class = "logo" src="icons/logo.png" alt="logo">
+        <button class = "exit">
+            <span class = "exittext">Выйти из аккаунта</span>
+        </button>
+    </header>
+
+    <div class = main>
+
+        <div class = "upper">
+            <button class = "mainpage">
+                <div class = "mainpagetext">
+                    <p>На главную</p>
+                </div>
+            </button>
+            <div class = "uppertext">   
+                <span class = "createprofile">Создание профиля</span>
+                <span class = "slesh">/</span>
+                <span class = "aboutyou">О себе</span></p>
+            </div>
+            <div class = "progressline">
+                <progress id = "progressbar" max = "100" value = "70"></progress>
+            </div>
+        </div>
+
+
+        <div class = "middle">
+
+            <div class = "left">
+    
+                <div class = "uploadphoto">
+                    <span class = "avatar">Aаватар профиля</span>
+                    <button class = "upload">
+                        <div class = "uploadtext">
+                            <p>Загрузить</p>
+                        </div>
+                    </button>
+                    <span class = "parametrphoto">Загрузите фотографию не более 10 мб</span>
+                </div>
+                <input name = "name" id="name" type="text" placeholder="Имя и фамилия">
+                <form action="">
+                    <input name="sex" type="radio" id="sex" class="custom-radio">
+                    <label for="sex">Парень</label>
+                    <input name="sex" type="radio" id="sex" class="custom-radio">
+                    <label for="sex">Девушка</label>
+                </form>
+                <input name ="dateofbirth" type="text" id = "dateofbirth" placeholder="Дата рождения">
+                <input name = "tg" id="tg" type="text" placeholder="Телеграм">
+                <input name = "phone" id="phone" type="tel" placeholder="Номер телефона">
+                <div>
+                    <textarea name="inform" id="inform" cols="30" rows="10" placeholder="О себе"></textarea><br>
+                    <span class = "example">Например: Редко готовлю, но люблю ботать на кухне по ночам. 
+                    Хочу завести собаку. Очень люблю читать, играть в хорроры и смотреть аниме. 
+                    Открыт к общению и взаимопомощи :)
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class = "right">
+                
+                <span class = "future">Так будет выглядеть твоя будущая страница</span>
+
+                <div class = "futureprofile">
+                    <div class = photoandbottom>
+                        <div class = "photo"></div>
+                        <button class = "showcontacts">
+                            <div class = "showcontactstext">
+                                <p>Показать контакты</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class = "profileinfo"></div>
+                </div>
+
+                <div class = "message">
+                    <div class = "text">
+                        <span class = "messagetext1">Мы совсем ничего о тебе не знаем</span><br>
+                        <span class = "messagetext2">Расскажи о себе.</span><br>
+                        <span class = "messagetext3">Люди пишут тем, кому доверят. Тем более при поиске соседа</span>
+                    </div>
+                    <img class = "emoji" src="img/emoji.png" alt="emoji">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class = "lower">
+
+            <button class = "continue">  
+                <div class = "continuetext"> 
+                    <p>Продолжить</p> 
+                </div> 
+            </button>
+
+        </div>
+
+    </div>
+
+    <footer class = "footer">
+        <div class = line1></div>
+        <div class = "contacts">
+            <div class = "support">
+                <span class = "email">Suppurt@homeet.com</span><br>
+                <span class = "techsupport">Техническая поддержка</span>
+            </div>
+            <div class = "links">
+                <div class = "imp">
+                    <span class = "aboutservice">О сервисе </span>
+                    <span class = "conts">Контакты </span>
+                    <span class = "politika">Политика конфиденциальности</span>
+                </div>
+                <div class = "media">
+                    <div class = "tglink">
+                        <a href="https://vk.com/styleru">
+                            <img class = "tg" src="icons/tgicon.png" alt="tg">
+                        </a>
+                    </div>
+                    <div class = "vklink">
+                        <a href="https://t.me/styleruorg">
+                            <img class = "vk" src="icons/vkicon.png" alt="vk">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "line2"></div>
+        <div class = "mention">
+            <span class = "policy">Предложение не является публичной афертой.<br>Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
+            <span class = "madein">Сделано в <span class = "bvsr">бвср</span></span>
+        </div>
+        <div class = "line3"></div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    
+    <header class="header">
+        <img class = "logo" src="icons/logo.png" alt="logo">
+        <button class = "exit">
+            <span class = "exittext">Выйти из аккаунта</span>
+        </button>
+    </header>
+
+    <div class = main>
+
+        <div class = "upper">
+            <button class = "mainpage">
+                <div class = "mainpagetext">
+                    <p>Назад</p>
+                </div>
+            </button>
+            <div class = "uppertext">   
+                <span class = "createprofile">Создание профиля</span>
+                <span class = "slesh">/</span>
+                <span class = "aboutyou">Образование</span></p>
+            </div>
+            <div class = "progressline">
+                <progress id = "progressbar" max = "100" value = "70"></progress>
+            </div>
+        </div>
+
+
+        <div class = "middle">
+
+            <div class = "left">
+
+                <form action="">
+                    <input name="edu" type="radio" id="edu" class="custom-radio">
+                    <label for="edu">Студент / выпускник</label>
+                    <input name="edu" type="radio" id="edu" class="custom-radio">
+                    <label for="edu">Сотрудник</label>
+                </form>
+
+                <div class = "course">
+
+                    <form action="">
+                        <input name="1" type="checkbox" id="1" value="yes" class="custom-checkbox">
+                        <label for="1">1</label>
+                        <input name="2" type="checkbox" id="2" value="yes" class="custom-checkbox">
+                        <label for="2">2</label>
+                        <input name="3" type="checkbox" id="3" value="yes" class="custom-checkbox">
+                        <label for="3">3</label>
+                        <input name="4" type="checkbox" id="4" value="yes" class="custom-checkbox">
+                        <label for="4">4</label>
+                        <input name="5" type="checkbox" id="5" value="yes" class="custom-checkbox">
+                        <label for="5">5</label>
+                        <input name="6" type="checkbox" id="6" value="yes" class="custom-checkbox">
+                        <label for="6">6</label>
+                    </form>
+    
+                    <form action="">
+                        <input type="checkbox" id="grad" name="grad" value="yes" class="custom-checkbox">
+                        <label for="grad">Уже окончил Вышку</label>
+                    </form>
+                </div>
+
+                <form action="">
+                    <label for="stage">Ступень Образования</label><br>
+                    <input name = "stage" id="stage" type="text" placeholder="Ступень образования">
+                </form>
+
+                <form action="">
+                    <label for="faculty">Факультет</label><br>
+                    <input name = "faculty" id="faculty" type="text" placeholder="Факультет">
+                </form>
+
+                <form action="">
+                    <label for="op">Образовательная программа</label><br>
+                    <input name = "op" id="op" type="text" placeholder="Образовательная программа">
+                </form>
+
+                <input name = "work" id="work" type="text" placeholder="Работа">
+
+            </div>
+
+
+            <div class = "right">
+                
+                <span class = "future">Так будет выглядеть твоя будущая страница</span>
+
+                <div class = "futureprofile">
+                    <div class = photoandbottom>
+                        <div class = "photo"></div>
+                        <button class = "showcontacts">
+                            <div class = "showcontactstext">
+                                <p>Показать контакты</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class = "profileinfo"></div>
+                </div>
+
+                <div class = "message">
+                    <div class = "text">
+                        <span class = "messagetext1">Расскажи где ты учишься</span><br>
+                        <span class = "messagetext2">Часто студенты ищут соседей по схожим интересам</span><br>
+                    </div>
+                    <img class = "emoji" src="img/emoji2.png" alt="emoji">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class = "lower">
+
+            <button class = "continue">  
+                <div class = "continuetext"> 
+                    <p>Продолжить</p> 
+                </div> 
+            </button>
+
+        </div>
+
+    </div>
+
+    <footer class = "footer">
+        <div class = line1></div>
+        <div class = "contacts">
+            <div class = "support">
+                <span class = "email">Suppurt@homeet.com</span><br>
+                <span class = "techsupport">Техническая поддержка</span>
+            </div>
+            <div class = "links">
+                <div class = "imp">
+                    <span class = "aboutservice">О сервисе </span>
+                    <span class = "conts">Контакты </span>
+                    <span class = "politika">Политика конфиденциальности</span>
+                </div>
+                <div class = "media">
+                    <div class = "tglink">
+                        <a href="https://vk.com/styleru">
+                            <img class = "tg" src="icons/tgicon.png" alt="tg">
+                        </a>
+                    </div>
+                    <div class = "vklink">
+                        <a href="https://t.me/styleruorg">
+                            <img class = "vk" src="icons/vkicon.png" alt="vk">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "line2"></div>
+        <div class = "mention">
+            <span class = "policy">Предложение не является публичной афертой.<br>Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
+            <span class = "madein">Сделано в <span class = "bvsr">бвср</span></span>
+        </div>
+        <div class = "line3"></div>
+    </footer>
+
+</body>
+</html>
