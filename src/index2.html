@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW1</title>
+    <title>HW1-2</title>
     <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
     
     <header class="header">
-        <img class = "logo" src="icons/logo.png" alt="logo">
+        <img class = "logo" src="icons/logo_main.svg" alt="logo">
         <button class = "exit">
             <span class = "exittext">Выйти из аккаунта</span>
         </button>
@@ -18,96 +18,283 @@
     <div class = main>
 
         <div class = "upper">
-            <button class = "mainpage">
-                <div class = "mainpagetext">
-                    <p>Назад</p>
-                </div>
+            <button class = "back">
+                <span class = "backtext" onclick="document.location='index.html'">Назад</span>
             </button>
             <div class = "uppertext">   
                 <span class = "createprofile">Создание профиля</span>
                 <span class = "slesh">/</span>
-                <span class = "aboutyou">Образование</span></p>
+                <span class = "education">Образование</span></p>
             </div>
             <div class = "progressline">
-                <progress id = "progressbar" max = "100" value = "70"></progress>
+                <progress id = "progressbar" max = "100" value = "40"></progress>
             </div>
         </div>
-
 
         <div class = "middle">
 
             <div class = "left">
 
-                <form action="">
-                    <input name="edu" type="radio" id="edu" class="custom-radio">
-                    <label for="edu">Студент / выпускник</label>
-                    <input name="edu" type="radio" id="edu" class="custom-radio">
-                    <label for="edu">Сотрудник</label>
-                </form>
-
-                <div class = "course">
-
-                    <form action="">
-                        <input name="1" type="checkbox" id="1" value="yes" class="custom-checkbox">
-                        <label for="1">1</label>
-                        <input name="2" type="checkbox" id="2" value="yes" class="custom-checkbox">
-                        <label for="2">2</label>
-                        <input name="3" type="checkbox" id="3" value="yes" class="custom-checkbox">
-                        <label for="3">3</label>
-                        <input name="4" type="checkbox" id="4" value="yes" class="custom-checkbox">
-                        <label for="4">4</label>
-                        <input name="5" type="checkbox" id="5" value="yes" class="custom-checkbox">
-                        <label for="5">5</label>
-                        <input name="6" type="checkbox" id="6" value="yes" class="custom-checkbox">
-                        <label for="6">6</label>
-                    </form>
-    
-                    <form action="">
-                        <input type="checkbox" id="grad" name="grad" value="yes" class="custom-checkbox">
-                        <label for="grad">Уже окончил Вышку</label>
-                    </form>
+                <div>
+                    <div class = "eduradios">
+                        <label class="edu">Студент / выпускник
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="edu">Сотрудник
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <span class = "ifInvalidRole"></span>
                 </div>
 
-                <form action="">
-                    <label for="stage">Ступень Образования</label><br>
-                    <input name = "stage" id="stage" type="text" placeholder="Ступень образования">
-                </form>
+                <!-- курс -->
+                <div class = "course-select">
+                    <span class = "courselabel">Курс</span>
+                    <form class="course">
+                        <div class="form_radio_btn">
+                            <input id="radio-1" type="radio" name="radio-course" value="1" oninput="func2()">
+                            <label for="radio-1"><span class = "coursenumber">1</span></label>
+                        </div>
+                     
+                        <div class="form_radio_btn">
+                            <input id="radio-2" type="radio" name="radio-course" value="2" oninput="func2()">
+                            <label for="radio-2"><span class = "coursenumber">2</span></label>
+                        </div>
+                     
+                        <div class="form_radio_btn">
+                            <input id="radio-3" type="radio" name="radio-course" value="3" oninput="func2()">
+                            <label for="radio-3"><span class = "coursenumber">3</span></label>
+                        </div>
+                     
+                        <div class="form_radio_btn">
+                            <input id="radio-4" type="radio" name="radio-course" value="4" oninput="func2()">
+                            <label for="radio-4"><span class = "coursenumber">4</span></label>
+                        </div>
+                     
+                        <div class="form_radio_btn">
+                            <input id="radio-5" type="radio" name="radio-course" value="5" oninput="func2()">
+                            <label for="radio-5"><span class = "coursenumber">5</span></label>
+                        </div>
+                     
+                        <div class="form_radio_btn">
+                            <input id="radio-6" type="radio" name="radio-course" value="6" oninput="func2()">
+                            <label for="radio-6"><span class = "coursenumber">6</span></label>
+                        </div>
+                    </form>
 
-                <form action="">
-                    <label for="faculty">Факультет</label><br>
-                    <input name = "faculty" id="faculty" type="text" placeholder="Факультет">
-                </form>
+                    <form action="">
+                        <input type="checkbox" id="grad" name="grad" class="custom-checkbox" oninput="func3()">
+                        <label for="grad"><span class = "grad">Уже окончил Вышку</span></label>
+                    </form>
+                    <span class = "ifInvalidCourse"></span>
+                </div>
 
-                <form action="">
-                    <label for="op">Образовательная программа</label><br>
-                    <input name = "op" id="op" type="text" placeholder="Образовательная программа">
-                </form>
+                <!-- ступень образования -->
+                <div class="select-container1">
+                    <span class="text1">Ступень образования</span>
+                    <div class="select-options1">
+                      <div class="select1">
+                          <input type="text" id="input1" placeholder="Ступень образования" onfocus="this.blur();" oninput="func4()">
+                      </div>
+                      <div class="option-container1">
+                          <div class="option1">
+                              <label>Бакалавариат</label>
+                          </div>
+                          <div class="option1">
+                            <label>Специалитет</label>
+                        </div>
+                          <div class="option1">
+                              <label>Магистратура</label>
+                          </div>
+                      </div>
+                    </div>
+                    <span class = "ifInvalidStage"></span>
+                  </div>
 
-                <input name = "work" id="work" type="text" placeholder="Работа">
+                <!-- факультет -->
+                <div class="select-container">
+                    <span class="text">Факультет</span>
+                    <div class="select-options">
+                      <div class="select">
+                          <input type="text" id="input" placeholder="Факультет" onfocus="this.blur();">
+                      </div>
+                      <div class="option-container">
+                          <div class="option">
+                              <label>Высшая школа бизнеса</label>
+                          </div>
+                          <div class="option">
+                              <label>Факультет гумарнитарных наук</label>
+                          </div>
+                          <div class="option">
+                              <label>Факультет права</label>
+                          </div>
+                          <div class="option">
+                            <label>Факультет химии</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет креативных индустрий</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт классического Востока и античности</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет городского и регионального развития</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет экономических наук</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет биологии и биотехнологии</label>
+                        </div>
+                        <div class="option">
+                            <label>Московский институт электроники и математики имени А.Н. Тихонова</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет мировой экономики и мировой политики</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет математики</label>
+                        </div>
+                        <div class="option">
+                            <label>Школа иностранных языков</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет социальных наук</label>
+                        </div>
+                        <div class="option">
+                            <label>Международный институт экономики и финансов</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет физики</label>
+                        </div>
+                        <div class="option">
+                            <label>Школа лингвистики</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт образования</label>
+                        </div>
+                        <div class="option">
+                            <label>Высшая школа юриспруденции и администрирования</label>
+                        </div>
+                        <div class="option">
+                            <label>Высшая школа урбанистики имени А.А. Высоковского</label>
+                        </div>
+                        <div class="option">
+                            <label>Банковский институт</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт демографии имени А.Г. Вишневского</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт когнитивных нейронаук</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт проблем безопасности</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт статистических исследований и экономики знаний</label>
+                        </div>
+                        <div class="option">
+                            <label>Базовая кафедра музея современного искусства "Гараж"</label>
+                        </div>
+                        <div class="option">
+                            <label>Институт торговой политики</label>
+                        </div>
+                        <div class="option">
+                            <label>Школа дизайна</label>
+                        </div>
+                        <div class="option">
+                            <label>Школа инноватики и предпринимательства</label>
+                        </div>
+                        <div class="option">
+                            <label>Факультет компьютерных наук</label>
+                        </div>
+                      </div>
+                    </div>
+                    <span class = "ifInvalidFaculty"></span>
+                  </div>
 
+                  <form action="" class = "OP-form">
+                    <input name = "OP" id = "OP" type="text" class = "OP" placeholder="Образовательная программа">
+                    <label for="OP" id = "ifInvalidOP"></label>
+                  </form>
+
+                  <form action="" class = "work-form">
+                    <input name = "work" id="work" type="text" placeholder="Работа" class = "work">
+                    <label for="work" id = "ifInvalidWork"></label>
+                  </form>
             </div>
-
 
             <div class = "right">
                 
                 <span class = "future">Так будет выглядеть твоя будущая страница</span>
 
                 <div class = "futureprofile">
-                    <div class = photoandbottom>
+
+                    <div class = photoandbutton>
                         <div class = "photo"></div>
-                        <button class = "showcontacts">
-                            <div class = "showcontactstext">
-                                <p>Показать контакты</p>
+                        
+                        <!-- HTML модального окна -->
+                        <div id="openModal" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Контакты</h3>
+                                        <a href="#close" title="Close" class="close">×</a>
+                                    </div>
+                                    <div class="modal-body">    
+                                        <span class = "showtg">Телеграм: <span class = "showtg-text" id = "showtg-text"></span></span>
+                                        <span class = "showtel">Номер телефона: <span class = "showtel-text" id = "showtel-text"></span></span>
+                                    </div>
+                                </div>
                             </div>
-                        </button>
+                        </div>
+                        <a href="#openModal" class = "showcontacts">
+                            <span class = "showcontactstext">Показать контакты</span>
+                        </a>
+
+
                     </div>
-                    <div class = "profileinfo"></div>
+
+                    <div class = "profileinfo">
+
+                        <!-- информация о себе в будущем профиле -->
+                        <div class = "information">
+                            <div class = "fname"><span id = "fname"></span></div>
+                            <div class = "gender_age_edu">
+                                <div class = "fgender"><span id = "fgender"></span></div>
+                                <div class = "dot"></div>
+                                <div class = "fage"><span id = "fage"></span></div>
+                                <div class = "dot"></div>
+                                <div class = "fedu">
+                                    <span id = "fcourse"></span>
+                                    <span id = "fstage"></span>
+                                    <span id = "ffaculty"></span>
+                                    <span id = "fOP"></span>
+                                </div>
+                            </div>
+                            <div class = "fwork"><span id = "fwork"></span></div>
+                            <div class = "faboutyou"><span id = "faboutyou"></span></div>
+                        </div>
+
+                        <!-- предпочтения по жилью -->
+                        <div class = "preferences">
+                            <span class = "preferencestext">Предпочтения по жилью:</span>
+                            <div class = "preferencesbefore1"></div>
+                            <div class = "preferencesbefore2"></div>
+                            <div class = "preferencesbefore3"></div>
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div class = "message">
-                    <div class = "text">
+                    <div class = "messagetext">
                         <span class = "messagetext1">Расскажи где ты учишься</span><br>
-                        <span class = "messagetext2">Часто студенты ищут соседей по схожим интересам</span><br>
+                        <span class = "messagetext2">Часто студенты ищут соседей по схожим интересам</span>
                     </div>
                     <img class = "emoji" src="img/emoji2.png" alt="emoji">
                 </div>
@@ -117,13 +304,9 @@
         </div>
 
         <div class = "lower">
-
             <button class = "continue">  
-                <div class = "continuetext"> 
-                    <p>Продолжить</p> 
-                </div> 
+                <span class = "continuetext">Продолжить</span>
             </button>
-
         </div>
 
     </div>
@@ -138,8 +321,8 @@
             <div class = "links">
                 <div class = "imp">
                     <span class = "aboutservice">О сервисе </span>
-                    <span class = "conts">Контакты </span>
-                    <span class = "politika">Политика конфиденциальности</span>
+                    <span class = "aboutservice">Контакты </span>
+                    <span class = "aboutservice">Политика конфиденциальности</span>
                 </div>
                 <div class = "media">
                     <div class = "tglink">
@@ -157,11 +340,16 @@
         </div>
         <div class = "line2"></div>
         <div class = "mention">
-            <span class = "policy">Предложение не является публичной афертой.<br>Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
-            <span class = "madein">Сделано в <span class = "bvsr">бвср</span></span>
+            <div class = "policycomm">
+                <span class = "policy">Предложение не является публичной афертой.</span>
+                <span class = "policy">Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
+            </div>
+            <span class = "madein">Сделано в бвср</span>
         </div>
         <div class = "line3"></div>
     </footer>
+
+    <script src="js/script2.js"></script>
 
 </body>
 </html>

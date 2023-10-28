@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW1</title>
+    <title>HW1-1</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
     <header class="header">
-        <img class = "logo" src="icons/logo.png" alt="logo">
+        <img class = "logo" src="icons/logo_main.svg" alt="logo">
         <button class = "exit">
             <span class = "exittext">Выйти из аккаунта</span>
         </button>
@@ -19,9 +19,7 @@
 
         <div class = "upper">
             <button class = "mainpage">
-                <div class = "mainpagetext">
-                    <p>На главную</p>
-                </div>
+                <span class = "mainpagetext">На галвную</span>
             </button>
             <div class = "uppertext">   
                 <span class = "createprofile">Создание профиля</span>
@@ -33,33 +31,69 @@
             </div>
         </div>
 
-
         <div class = "middle">
 
             <div class = "left">
-    
+                
+                <!-- загрузить фотографию -->
                 <div class = "uploadphoto">
-                    <span class = "avatar">Aаватар профиля</span>
-                    <button class = "upload">
-                        <div class = "uploadtext">
-                            <p>Загрузить</p>
-                        </div>
-                    </button>
-                    <span class = "parametrphoto">Загрузите фотографию не более 10 мб</span>
+                    <div class = "uploadphotocontent">
+                        <span class = "avatar">Aаватар профиля</span>
+                        <button class = "upload">
+                            <span class = "uploadtext">Загрузить</span>
+                        </button>
+                        <span class = "parametrphoto">Загрузите фотографию не более 10 мб</span>
+                    </div>
                 </div>
-                <input name = "name" id="name" type="text" placeholder="Имя и фамилия">
-                <form action="">
-                    <input name="sex" type="radio" id="sex" class="custom-radio">
-                    <label for="sex">Парень</label>
-                    <input name="sex" type="radio" id="sex" class="custom-radio">
-                    <label for="sex">Девушка</label>
+
+                <div class = "nameandgender">
+                    <!-- имя и фамилия -->
+                    <form action="" class="name">
+                        <input name = "name" id="name" type="text" placeholder="Имя и фамилия">
+                        <label for="name" id = "ifInvalidName"></label>
+                    </form>
+
+                    <!-- пол -->
+                    <div>
+                        <div class = "genderradios">
+                            <label class="gender">Парень
+                                <input type="radio" name="radio" id = "gender" value = "Парень" oninput="func1()">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="gender">Девушка
+                                <input type="radio" name="radio" id = "gender" value = "Девушка" oninput="func1()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span class = "ifInvalidGender"></span>
+                    </div>
+                </div>
+
+                <!-- дата рождения -->
+                <form action="" class = "dateofbirth">
+                    <input name ="dateofbirth" type="text" id = "dateofbirth" onchange="javascript:onDateChange(this);" placeholder="Дата рождения" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label for="dateofbirth" id = "ifInvalidDob"></label>
                 </form>
-                <input name ="dateofbirth" type="text" id = "dateofbirth" placeholder="Дата рождения">
-                <input name = "tg" id="tg" type="text" placeholder="Телеграм">
-                <input name = "phone" id="phone" type="tel" placeholder="Номер телефона">
-                <div>
-                    <textarea name="inform" id="inform" cols="30" rows="10" placeholder="О себе"></textarea><br>
-                    <span class = "example">Например: Редко готовлю, но люблю ботать на кухне по ночам. 
+
+                <!-- телеграм -->
+                <form action="" class = "tg">
+                    <input name = "tg" id="tg" type="text" placeholder="Ник телеграма без @">
+                    <label for="tg" id = "ifInvalidTg"></label>
+                </form>
+
+                <!-- номер телефона -->
+                <form action="" class = "phone">
+                    <input name = "phone" id="phone" type="tel" placeholder="Номер телефона (11 цифр)">
+                    <label for="phone" id = "ifInvalidPhone"></label>
+                </form>
+
+                <div class = "inform-aboutyou">
+                    <form action="" class = "inform">
+                        <textarea name="inform" id="inform" type = "text" placeholder="О себе"></textarea><br>
+                        <label for="inform" id = "ifInvalidInform"></label>
+                    </form>
+                    <span class = "example">
+                    Например: Редко готовлю, но люблю ботать на кухне по ночам. 
                     Хочу завести собаку. Очень люблю читать, играть в хорроры и смотреть аниме. 
                     Открыт к общению и взаимопомощи :)
                     </span>
@@ -67,21 +101,67 @@
 
             </div>
 
-
             <div class = "right">
                 
                 <span class = "future">Так будет выглядеть твоя будущая страница</span>
 
                 <div class = "futureprofile">
-                    <div class = photoandbottom>
+
+                    <div class = photoandbutton>
                         <div class = "photo"></div>
-                        <button class = "showcontacts">
-                            <div class = "showcontactstext">
-                                <p>Показать контакты</p>
+
+
+                        <!-- HTML модального окна -->
+                        <div id="openModal" class="modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Контакты</h3>
+                                        <a href="#close" title="Close" class="close">×</a>
+                                    </div>
+                                    <div class="modal-body">    
+                                        <span class = "showtg">Телеграм: <span class = "showtg-text" id = "showtg-text"></span></span>
+                                        <span class = "showtel">Номер телефона: <span class = "showtel-text" id = "showtel-text"></span></span>
+                                    </div>
+                                </div>
                             </div>
-                        </button>
+                        </div>
+                        <a href="#openModal" class = "showcontacts" onclick="return false;">
+                            <span class = "showcontactstext">Показать контакты</span>
+                        </a>
                     </div>
-                    <div class = "profileinfo"></div>
+
+                    <div class = "profileinfo">
+
+                        <!-- информация о себе в будущем профиле -->
+                        <div class = "information">
+                            <div class = "fname"><span id = "fname"></span></div>
+                            <div class = "gender_age_edu">
+                                <div class = "fgender"><span id = "fgender"></span></div>
+                                <div class = "dot"></div>
+                                <div class = "fage"><span id = "fage"></span></div>
+                                <div class = "dot"></div>
+                                <div class = "fedu">
+                                    <span id = "fcourse"></span>
+                                    <span id = "fstage"></span>
+                                    <span id = "ffaculty"></span>
+                                    <span id = "fOP"></span>
+                                </div>
+                            </div>
+                            <div class = "fwork"><span id = "fwork"></span></div>
+                            <div class = "faboutyou"><span id = "faboutyou"></span></div>
+                        </div>
+
+                        <!-- предпочтения по жилью -->
+                        <div class = "preferences">
+                            <span class = "preferencestext">Предпочтения по жилью:</span>
+                            <div class = "preferencesbefore1"></div>
+                            <div class = "preferencesbefore2"></div>
+                            <div class = "preferencesbefore3"></div>
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div class = "message">
@@ -98,17 +178,14 @@
         </div>
 
         <div class = "lower">
-
             <button class = "continue">  
-                <div class = "continuetext"> 
-                    <p>Продолжить</p> 
-                </div> 
+                <span class = "continuetext">Продолжить</span>
+                <!-- onclick="document.location='index2.html'" -->
             </button>
-
         </div>
 
     </div>
-
+    
     <footer class = "footer">
         <div class = line1></div>
         <div class = "contacts">
@@ -119,18 +196,18 @@
             <div class = "links">
                 <div class = "imp">
                     <span class = "aboutservice">О сервисе </span>
-                    <span class = "conts">Контакты </span>
-                    <span class = "politika">Политика конфиденциальности</span>
+                    <span class = "aboutservice">Контакты </span>
+                    <span class = "aboutservice">Политика конфиденциальности</span>
                 </div>
                 <div class = "media">
                     <div class = "tglink">
                         <a href="https://vk.com/styleru">
-                            <img class = "tg" src="icons/tgicon.png" alt="tg">
+                            <img class = "tg-img" src="icons/tgicon.png" alt="tg">
                         </a>
                     </div>
                     <div class = "vklink">
                         <a href="https://t.me/styleruorg">
-                            <img class = "vk" src="icons/vkicon.png" alt="vk">
+                            <img class = "vk-img" src="icons/vkicon.png" alt="vk">
                         </a>
                     </div>
                 </div>
@@ -138,11 +215,16 @@
         </div>
         <div class = "line2"></div>
         <div class = "mention">
-            <span class = "policy">Предложение не является публичной афертой.<br>Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
-            <span class = "madein">Сделано в <span class = "bvsr">бвср</span></span>
+            <div class = "policycomm">
+                <span class = "policy">Предложение не является публичной афертой.</span>
+                <span class = "policy">Сервис не несет ответственность за действия пользователей, достоверность информации и т.д.</span>
+            </div>
+            <span class = "madein">Сделано в бвср</span>
         </div>
         <div class = "line3"></div>
     </footer>
+
+    <script src="./js/script.js"></script>
 
 </body>
 </html>
